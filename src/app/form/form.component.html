@@ -1,0 +1,77 @@
+<form method="get" action="">
+  <label>{{ one }}</label
+  ><br />
+  <input type="text" name="name" [(ngModel)]="name" id="name" /><br />
+  <label>{{ two }}</label
+  ><br />
+  <input
+    type="text"
+    name="username"
+    id="username"
+    [(ngModel)]="username"
+  /><br />
+  <label>{{ three }}</label
+  ><br />
+  <input type="number" name="phone" id="phone" [(ngModel)]="phone" /><br />
+  <input
+    type="button"
+    class="btn btn-primary btn-lg my-3"
+    value="Add"
+    (click)="onclick($event)"
+  />
+</form>
+<div class="col-xl-6 col-12 recent">
+  <table class="table table-light table-hover text-center">
+    <thead>
+      <tr class="text-muted">
+        <th>#</th>
+        <th>Name</th>
+        <th>username</th>
+        <th>phone</th>
+        <th colspan="3">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of listData; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.username }}</td>
+        <td>{{ item.phone }}</td>
+        <td>
+          <button
+            type="button"
+            class="btn btn-danger btn-sm"
+            (click)="remove(i)"
+          >
+            Delete
+          </button>
+        </td>
+        <td>
+          <button
+            class="btn btn-primary"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseWidthExample"
+            aria-expanded="flase"
+            aria-controls="collapseWidthExample"
+            (click)="ditals(item)"
+          >
+            ditals
+          </button>
+        </td>
+        <!-- <td><button type="button" class="btn btn-primary btn-sm one" (click)="ditals(item)">Details</button></td> -->
+        <td>
+          <button type="button" class="btn btn-warning btn-sm">update</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div style="min-height: 20px">
+  <div class="collapse collapse-horizontal" id="collapseWidthExample">
+    <div class="card card-body" style="width: 300px ;color: black;">
+      {{ this.message }}
+    </div>
+  </div>
+</div>
